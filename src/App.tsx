@@ -3,6 +3,8 @@ import './App.css'
 
 const Headshot1 = require('./assets/images/lindell_picture.jpg')
 
+import Navigation from './components/navigation/Navigation'
+
 const Hero = (): JSX.Element => {
   return (
     <div 
@@ -18,19 +20,6 @@ const Hero = (): JSX.Element => {
         margin: '0 auto'
       }}
     />
-  )
-}
-
-const Navigation = (): JSX.Element => {
-  return (
-    <nav>
-      <ul
-        style={{border: '1px solid red'}}
-      >
-        <li>Home / News</li>
-        <li>Calendar</li>
-      </ul>
-    </nav>
   )
 }
 
