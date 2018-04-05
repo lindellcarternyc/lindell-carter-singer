@@ -1,9 +1,22 @@
 import * as React from 'react'
 
-import { Color } from '../constants/styles'
+import { Color, Breakpoint } from '../constants/styles'
+import { makeResponsiveComponent } from '../responsive'
+
 import Input from './form/Input'
 
-const ContactForm = (): JSX.Element => {
+interface ContactFormProps {
+  breakpoint?: Breakpoint
+}
+const ContactForm = (props: ContactFormProps): JSX.Element => {
+  const gridStyles = props.breakpoint === Breakpoint.Desktop
+  ? {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridColumnGap: '1rem',
+  } : {
+    display: 'block'
+  }
   return (
     <>
       <form
@@ -11,10 +24,8 @@ const ContactForm = (): JSX.Element => {
       >
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gridColumnGap: '1rem',
-            marginBottom: '1rem'
+            marginBottom: '1rem',
+            ...gridStyles
           }}
         >
           <Input label="Name" />
@@ -37,4 +48,4 @@ const ContactForm = (): JSX.Element => {
   )
 }
 
-export default ContactForm
+export default makeResponsiveComponent(ContactForm)
