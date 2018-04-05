@@ -5,6 +5,7 @@ const Headshot1 = require('./assets/images/lindell_picture.jpg')
 
 import Navigation from './components/navigation/Navigation'
 import Hero from './components/Hero'
+import ContactForm from './components/ContactForm'
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
       <div className="App">
         <Hero image={Headshot1}/>
         <Navigation />
+        <ContactForm />
       </div>
     )
   }
