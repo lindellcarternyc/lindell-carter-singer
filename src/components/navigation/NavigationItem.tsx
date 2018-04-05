@@ -24,6 +24,7 @@ const NavigationItem = (props: NavigationItemProps): JSX.Element => {
         backgroundColor: active ? Color.DarkGrey : undefined,
         color: active ? Color.Blue : Color.DarkGrey,
         transition: 'all 0.3s ease-in',
+        textAlign: 'center',
         ...padding
       }}
     >

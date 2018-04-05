@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Breakpoint } from '../../constants/styles'
-import { makeResponsive } from '../../responsive'
+import { makeResponsiveComponent } from '../../responsive'
 
 const LINKS = [
   'NEWS', 'ABOUT', 'CALENDAR',
@@ -40,4 +40,4 @@ const NavigationComponent = (props: NavigationProps): JSX.Element => {
   )
 }
 
-export default makeResponsive(NavigationComponent)
+export default makeResponsiveComponent(NavigationComponent)
