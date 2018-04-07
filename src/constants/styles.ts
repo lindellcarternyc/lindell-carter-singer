@@ -12,23 +12,6 @@ export const Color = {
   LightGrey
 }
 
-export enum Breakpoint {
-  Mobile = 'mobile',
-  Desktop = 'desktop'
-}
-export const breakpointForWidth = (width: number): Breakpoint => {
-  if ( width >= 600 ) {
-    return Breakpoint.Desktop
-  } else {
-    return Breakpoint.Mobile
-  }
-}
-export const Responsive = {
-  Breakpoint,
-  breakpointForWidth
-}
-
 export const Style = {
   Color,
-  Responsive
 }
