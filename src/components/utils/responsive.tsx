@@ -1,6 +1,21 @@
 import * as React from 'react'
 
-import { Breakpoint, breakpointForWidth } from './constants/styles'
+export enum Breakpoint {
+  Mobile = 'mobile',
+  Desktop = 'desktop'
+}
+export const breakpointForWidth = (width: number): Breakpoint => {
+  if ( width >= 600 ) {
+    return Breakpoint.Desktop
+  } else {
+    return Breakpoint.Mobile
+  }
+}
+
+export const Responsive = {
+  Breakpoint,
+  breakpointForWidth
+}
 
 export function makeResponsiveComponent<ComponentProps extends { breakpoint?: Breakpoint } >(
   Component: React.ComponentType<ComponentProps>
