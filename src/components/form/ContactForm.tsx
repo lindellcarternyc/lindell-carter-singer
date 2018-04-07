@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { Color, Breakpoint } from '../constants/styles'
-import { makeResponsiveComponent } from '../responsive'
+import { Color, } from '../../constants/styles'
+import { Breakpoint, makeResponsiveComponent } from '../utils/responsive'
 
-import Input from './form/Input'
+import Input from './Input'
 
 interface ContactFormProps {
   breakpoint?: Breakpoint

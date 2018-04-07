@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import { Breakpoint } from '../../constants/styles'
-import { makeResponsiveComponent } from '../../responsive'
+import { Breakpoint, makeResponsiveComponent } from '../utils/responsive'
 
 const LINKS = [
   'NEWS', 'ABOUT', 'CALENDAR',
