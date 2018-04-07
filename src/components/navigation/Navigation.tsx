@@ -12,22 +12,34 @@ export interface NavigationProps {
   breakpoint?: Breakpoint
 }
 const NavigationComponent = (props: NavigationProps): JSX.Element => {
-  const breakpoint = props.breakpoint || Breakpoint.Mobile
-  const display = breakpoint === Breakpoint.Mobile
-    ? { 
-      display: 'grid',
-      gridTemplateColumns: 'repeat(2, 1fr)'
-    } : {
+  const breakpoint = props.breakpoint || Breakpoint.Phone
+
+  let displayStyles: { 
+    display: 'grid',
+    gridTemplateColumns: string
+  } | {
+    display: 'flex',
+    justifyContent: string
+  }
+
+  if ( breakpoint > Breakpoint.Phone ) {
+    displayStyles = {
       display: 'flex',
       justifyContent: 'flex-end'
     }
+  } else {
+    displayStyles = {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(2, 1fr)'
+    }
+  }
   return (
     <nav>
       <ul
         style={{
           listStyle: 'none',
           padding: '1.5rem 1rem',
-          ...display,
+          ...displayStyles,
         }}
       >
         {LINKS.map(link => {
