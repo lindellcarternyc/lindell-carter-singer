@@ -1,20 +1,18 @@
 import * as React from 'react'
 
 export enum Breakpoint {
-  Mobile = 'mobile',
-  Desktop = 'desktop'
+  Phone,
+  Phablet,
+  Tablet,
+  Desktop,
+  Widescreen
 }
 export const breakpointForWidth = (width: number): Breakpoint => {
   if ( width >= 600 ) {
     return Breakpoint.Desktop
   } else {
-    return Breakpoint.Mobile
+    return Breakpoint.Phone
   }
-}
-
-export const Responsive = {
-  Breakpoint,
-  breakpointForWidth
 }
 
 export function makeResponsiveComponent<ComponentProps extends { breakpoint?: Breakpoint } >(
@@ -27,7 +25,7 @@ export function makeResponsiveComponent<ComponentProps extends { breakpoint?: Br
     constructor(props: ComponentProps) {
       super(props)
 
-      this.state = { breakpoint: Breakpoint.Mobile }
+      this.state = { breakpoint: Breakpoint.Phone }
     }
 
     componentDidMount() {
