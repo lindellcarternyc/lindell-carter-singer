@@ -11,7 +11,6 @@ const Headshot1 = require('./assets/images/lindell_picture.jpg')
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ContactPage from './pages/ContactPage'
-// import CalendarPage from './pages/CalendarPage'
 // import HomePage from './pages/HomePage'
 // import Layout from './components/Layout'
 

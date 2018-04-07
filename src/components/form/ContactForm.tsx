@@ -9,13 +9,23 @@ interface ContactFormProps {
   breakpoint?: Breakpoint
 }
 const ContactForm = (props: ContactFormProps): JSX.Element => {
-  const gridStyles = props.breakpoint === Breakpoint.Desktop
-  ? {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gridColumnGap: '1rem',
-  } : {
+  const { breakpoint } = props
+  let displayStyles: {
     display: 'block'
+  } | {
+    display: 'grid'
+    gridTemplateColumns: string
+    gridColumnGap: string
+  }
+  
+  if ( breakpoint !== undefined && breakpoint > Breakpoint.Phone ) {
+    displayStyles = {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+      gridColumnGap: '1rem'
+    }
+  } else {
+    displayStyles = { display: 'block' }
   }
   return (
     <>
@@ -25,7 +35,7 @@ const ContactForm = (props: ContactFormProps): JSX.Element => {
         <div
           style={{
             marginBottom: '1rem',
-            ...gridStyles
+            ...displayStyles
           }}
         >
           <Input label="Name" />

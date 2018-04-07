@@ -17,6 +17,14 @@ interface CalendarItemProps extends EventData {
 }
 const CalendarItem = (props: CalendarItemProps): JSX.Element => {
   const { dates, title, location, breakpoint } = props
+  let displayStyles: {
+    display: 'grid',
+    gridColumnGap: string
+    gridTemplateColumns?: string
+  } = { display: 'grid', gridColumnGap: '1rem' }
+  if ( breakpoint !== undefined && breakpoint > Breakpoint.Phone ) {
+    displayStyles.gridTemplateColumns = '70px repeat(2, 1fr) 80px'
+  }
   return (
     <div
       style={{
@@ -27,11 +35,7 @@ const CalendarItem = (props: CalendarItemProps): JSX.Element => {
         background: props.active ? 'black' : undefined,
         transition: 'background 0.3s ease-in',
         borderBottom: `1px solid ${Color.LightGrey}`,
-        display: 'grid',
-        gridTemplateColumns: breakpoint === Breakpoint.Desktop 
-          ? '70px repeat(2, 1fr) 80px'
-          : undefined,
-        gridColumnGap: '1rem'
+        ...displayStyles
       }}
     >
       <CalendarItemDates dates={dates} />
