@@ -13,6 +13,7 @@ export interface NavigationProps {
 }
 const NavigationComponent = (props: NavigationProps): JSX.Element => {
   const breakpoint = props.breakpoint || Breakpoint.Phone
+  const padded = breakpoint >= Breakpoint.Phablet
 
   let displayStyles: { 
     display: 'grid',
@@ -44,7 +45,7 @@ const NavigationComponent = (props: NavigationProps): JSX.Element => {
       >
         {LINKS.map(link => {
           return (
-            <HoverNavigationItem key={link} text={link} padded={breakpoint === Breakpoint.Desktop}/>)
+            <HoverNavigationItem key={link} text={link} padded={padded}/>)
         })}
       </ul>
     </nav>
