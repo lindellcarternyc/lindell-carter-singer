@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export enum Breakpoint {
-  Phone,
+  Phone = 1,
   Phablet,
   Tablet,
   Desktop,
