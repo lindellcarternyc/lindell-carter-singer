@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export function makeHoverableComponent<ComponentProps extends { active?: boolean }>(
+function makeHoverableComponent<ComponentProps extends { active?: boolean }>(
   Component: React.ComponentType<ComponentProps>
 ) {
   interface HoverableComponentState {
@@ -14,27 +14,23 @@ export function makeHoverableComponent<ComponentProps extends { active?: boolean
     }
 
     render() {
-      const active: boolean = this.props.active === true || this.state.isHovered
+      const active = this.props.active === true || this.state.isHovered
       let props: ComponentProps = this.props
       return (
-        <div
+        <div 
           onMouseOver={this._onMouseOver}
           onMouseOut={this._onMouseOut}
         >
-          <Component
+          <Component 
             {...props}
-            active={active} 
+            active={active}
           />
         </div>
       )
     }
 
-    private _onMouseOver = () => {
-      this.setState({ isHovered: true })
-    }
-    private _onMouseOut = () => {
-      this.setState({ isHovered: false })
-    }
+    private _onMouseOver = () => { this.setState({ isHovered: true }) }
+    private _onMouseOut = () => { this.setState({ isHovered: false }) }
   }
 
   return HoverableComponent

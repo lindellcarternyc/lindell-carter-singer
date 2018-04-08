@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Color, } from '../../../constants/styles'
-import { makeHoverableComponent }  from '../../Hoverable'
+import makeHoverableComponent from '../../utils/hoverable'
 import { Breakpoint, makeResponsiveComponent } from '../../utils/responsive'
 
 import CalendarItemDates from './CalendarItemDates'

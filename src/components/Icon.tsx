@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { makeHoverableComponent } from './Hoverable' 
+import  makeHoverableComponent from './utils/hoverable' 
 
 interface IconProps {
   name: string
