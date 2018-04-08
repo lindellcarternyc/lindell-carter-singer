@@ -8,11 +8,16 @@ export enum Breakpoint {
   Widescreen
 }
 export const breakpointForWidth = (width: number): Breakpoint => {
-  if ( width >= 600 ) {
+  if ( width >= 1100 ) {
+    return Breakpoint.Widescreen
+  } else if ( width >= 970 ) { 
     return Breakpoint.Desktop
-  } else {
-    return Breakpoint.Phone
+  } else if ( width >= 725 ) {
+    return Breakpoint.Tablet
+  } else if ( width >= 475 ) {
+    return Breakpoint.Phablet
   }
+  return Breakpoint.Phone
 }
 
 export function makeResponsiveComponent<ComponentProps extends { breakpoint?: Breakpoint } >(
