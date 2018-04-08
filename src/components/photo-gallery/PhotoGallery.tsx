@@ -3,17 +3,8 @@ import * as React from 'react'
 import { Color } from '../../constants/styles'
 import PhotoGalleryGrid from './PhotoGalleryGrid'
 
-const Headshot = require('../../assets/images/lindell_picture.jpg')
-
-const Images = [
-  Headshot, Headshot, Headshot,
-  Headshot, Headshot, Headshot,
-  Headshot, Headshot, Headshot,
-  Headshot, Headshot, Headshot,
-  Headshot, Headshot, Headshot,
-]
-
-const PhotoGalleryWrapper = (): JSX.Element => {
+const PhotoGallery = (props: { images: string[] }): JSX.Element => {
+  const { images } = props
   return (
     <div
       style={{
@@ -21,13 +12,9 @@ const PhotoGalleryWrapper = (): JSX.Element => {
         padding: '1rem 2rem'
       }}
     >
-      <PhotoGalleryGrid images={Images}/>
+      <PhotoGalleryGrid images={images}/>
     </div>
   )
 }
 
-export default () => {
-  return (
-    <PhotoGalleryWrapper />
-  )
-}
+export default PhotoGallery

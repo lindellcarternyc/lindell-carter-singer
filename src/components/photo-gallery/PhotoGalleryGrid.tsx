@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import PhotoGalleryImage from './PhotoGalleryImage'
+import PhotoGalleryImage, { IMAGE_WIDTH }  from './PhotoGalleryImage'
 import { Breakpoint, makeResponsiveComponent } from '../utils/responsive'
 
 interface PhotoGalleryGridProps {
@@ -9,20 +9,13 @@ interface PhotoGalleryGridProps {
 }
 
 const gridTemplateColumns = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
-  let repeat: number
-  if ( breakpoint >= Breakpoint.Widescreen ) {
-    repeat = 5
-  } else if ( breakpoint >= Breakpoint.Desktop ) {
-    repeat = 4
-  } else if ( breakpoint >= Breakpoint.Tablet ) {
-    repeat = 3
-  } else if ( breakpoint >= Breakpoint.Phablet ) {
-    repeat = 2
-  } else {
-    repeat = 1
-  }
-
+  const repeat = breakpoint as number
   return `repeat(${repeat}, 1fr)`
+}
+
+const gridWidth = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
+  const factor = breakpoint as number
+  return `calc(${factor * IMAGE_WIDTH}px + ${factor - 1}rem)`
 }
 const PhotoGalleryGrid = (props: PhotoGalleryGridProps): JSX.Element => {
   const { images, breakpoint } = props
@@ -30,9 +23,7 @@ const PhotoGalleryGrid = (props: PhotoGalleryGridProps): JSX.Element => {
     <div
       style={{
         margin: '0 auto',
-        width: 'max-content',
-        border: '1px solid red',
-        textAlign: 'center',
+        width: gridWidth(breakpoint),
         display: 'grid',
         gridColumnGap: '1rem',
         gridRowGap: '1rem',
