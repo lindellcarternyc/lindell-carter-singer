@@ -1,14 +1,21 @@
 import * as React from 'react'
 
 import { Color } from '../../constants/styles'
+import { PageRoute } from '../../pages/index'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
 
 export interface NavigationItemProps {
-  text: string
+  route: PageRoute
   active?: boolean
   padded?: boolean
 }
-const NavigationItem = (props: NavigationItemProps): JSX.Element => {
-  const { text, active, padded } = props
+const NavigationItem = (props: NavigationItemProps & RouteComponentProps<{}>): JSX.Element => {
+  let { route, active, padded, history, match } = props
+  
+  if ( match.path === route.path ) {
+    active = true
+  }
+  
   const padding = padded === true
   ? {
     padding: '1rem 1rem'
@@ -27,10 +34,11 @@ const NavigationItem = (props: NavigationItemProps): JSX.Element => {
         textAlign: 'center',
         ...padding
       }}
+      onClick={() => { history.push(route.path)}}
     >
-      {text}
+      {route.name}
     </li>
   )
 }
 
-export default NavigationItem
+export default withRouter(NavigationItem)
