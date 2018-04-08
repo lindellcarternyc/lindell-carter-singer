@@ -4,21 +4,27 @@ import './App.css'
 const Headshot1 = require('./assets/images/lindell_picture.jpg')
 
 import Header from './components/Header'
+import Main from './components/Main'
 import Footer from './components/Footer'
-// import PhotoGalleryPage from './pages/PhotoGalleryPage'
-import CalendarPage from './pages/CalendarPage'
+
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
     return (
       <div style={{position: 'relative'}}>
         <Header heroImage={Headshot1} />
-        {/* <PhotoGalleryPage /> */}
-        <CalendarPage />
+        <Main />
         <Footer />
       </div>
     )
   }
 }
 
-export default App
+export default () => {
+  return (
+    <Router>
+      <App />
+    </Router>
+  )
+}
