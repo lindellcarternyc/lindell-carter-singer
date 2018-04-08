@@ -40,6 +40,7 @@ const NavigationComponent = (props: NavigationProps): JSX.Element => {
         style={{
           listStyle: 'none',
           padding: '1.5rem 1rem',
+          background: 'white',
           ...displayStyles,
         }}
       >

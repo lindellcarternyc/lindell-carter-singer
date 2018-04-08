@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Color } from '../../constants/styles'
+
 import CalendarSelector from './CalendarSelector'
 
 interface CalendarSelectorsProps {
@@ -15,7 +17,8 @@ const CalendarSelectors = (props: CalendarSelectorsProps): JSX.Element => {
         paddingLeft: '0.75rem',
         paddingRight: '0.75rem',
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        background: Color.White
       }}
     >
       <CalendarSelector 

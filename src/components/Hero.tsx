@@ -10,6 +10,8 @@ const Hero = (props: HeroProps): JSX.Element => {
       style={{
         background: `url(${props.image})`,
         backgroundSize: 'cover',
+        position: 'fixed',
+        left: '50%', transform: 'translateX(-50%)',
         width: '100%',
         maxWidth: '800px',
         height: '100vh',

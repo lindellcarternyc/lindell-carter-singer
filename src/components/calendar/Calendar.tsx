@@ -34,7 +34,8 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
           style={{
             background: Color.DarkGrey,
             paddingLeft: '1.5rem',
-            paddingRight: '1.5rem'
+            paddingRight: '1.5rem',
+            paddingBottom: '1.5rem'
           }}
         >
           {currentData.map( data => {
