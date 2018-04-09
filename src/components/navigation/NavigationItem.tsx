@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Color } from '../../constants/styles'
+import makeHoverableComponent from '../utils/hoverable'
 import { PageRoute } from '../../pages/index'
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 
@@ -34,11 +35,13 @@ const NavigationItem = (props: NavigationItemProps & RouteComponentProps<{}>): J
         textAlign: 'center',
         ...padding
       }}
-      onClick={() => { history.push(route.path)}}
+      onClick={() => { history.push(route.path) }}
     >
       {route.name}
     </li>
   )
 }
 
-export default withRouter(NavigationItem)
+export default withRouter(
+  makeHoverableComponent(NavigationItem)
+)

@@ -1,3 +1,4 @@
-import Navigation from './Navigation'
+import Navigation, { NavigationHeight } from './Navigation'
 
 export default Navigation
+export { NavigationHeight }
