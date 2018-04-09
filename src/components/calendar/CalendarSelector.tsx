@@ -6,7 +6,7 @@ import makeHoverableComponent from '../utils/hoverable'
 interface CalendarSelectorProps {
   text: string
   active?: boolean
-  onClick?: (text: string) => void
+  onClick: () => void
 }
 const CalendarSelector = (props: CalendarSelectorProps): JSX.Element => {
   const { text, active } = props
@@ -20,11 +20,7 @@ const CalendarSelector = (props: CalendarSelectorProps): JSX.Element => {
         background: active ? Color.DarkGrey : undefined,
         transition: 'all 0.3s ease-in'
       }}
-      onClick={() => {
-        if (props.onClick) {
-          props.onClick(text)
-        }
-      }}
+      onClick={props.onClick}
     >{text}
     </li>
   )
