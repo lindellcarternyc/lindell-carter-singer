@@ -3,9 +3,14 @@ import * as React from 'react'
 import { Breakpoint, makeResponsiveComponent } from '../utils/responsive'
 import { PAGE_ROUTES, } from '../../pages'
 
-import HoverNavigationItem from './HoverNavigationItem'
-export interface NavigationProps {
+import NavigationItem from './NavigationItem'
+interface NavigationProps {
   breakpoint?: Breakpoint
+}
+
+export const NavigationHeight = {
+  [Breakpoint.Phone]: 92,
+  [Breakpoint.Phablet]: 196
 }
 
 const styles = (breakpoint: Breakpoint) => {
@@ -44,15 +49,15 @@ const NavigationComponent = (props: NavigationProps): JSX.Element => {
       <ul
         style={styles(breakpoint)}
       >
-        <HoverNavigationItem 
+        <NavigationItem 
           route={PAGE_ROUTES.HOME} 
           padded={padded} 
         />
-        <HoverNavigationItem route={PAGE_ROUTES.ABOUT} padded={padded} />
-        <HoverNavigationItem route={PAGE_ROUTES.CALENDAR} padded={padded} />
-        <HoverNavigationItem route={PAGE_ROUTES.GALLERY} padded={padded} />
-        <HoverNavigationItem route={PAGE_ROUTES.WATCH_AND_LISTEN} padded={padded} />
-        <HoverNavigationItem route={PAGE_ROUTES.CONTACT} padded={padded} />
+        <NavigationItem route={PAGE_ROUTES.ABOUT} padded={padded} />
+        <NavigationItem route={PAGE_ROUTES.CALENDAR} padded={padded} />
+        <NavigationItem route={PAGE_ROUTES.GALLERY} padded={padded} />
+        <NavigationItem route={PAGE_ROUTES.WATCH_AND_LISTEN} padded={padded} />
+        <NavigationItem route={PAGE_ROUTES.CONTACT} padded={padded} />
       </ul>
     </nav>
   )

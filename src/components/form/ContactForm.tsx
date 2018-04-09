@@ -30,7 +30,7 @@ const ContactForm = (props: ContactFormProps): JSX.Element => {
   return (
     <>
       <form
-        style={{padding: '1rem'}}
+        style={{padding: '1rem', background: Color.White}}
       >
         <div
           style={{
