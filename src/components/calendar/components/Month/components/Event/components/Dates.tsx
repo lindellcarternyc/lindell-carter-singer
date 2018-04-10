@@ -1,26 +1,19 @@
 import * as React from 'react'
 
-import { Color } from '../../../constants/styles'
-
-interface CalendarItemDatesProps {
-  dates: string[]
-}
-
-const CalendarItemDates = (props: CalendarItemDatesProps): JSX.Element => {
-  const { dates } = props
+const Dates = (props: { dates: string[] }): JSX.Element => {
   return (
     <ul
       style={{
         listStyle: 'none',
         marginBottom: '0.75rem'
       }}
-    >{dates.map(date => {
+    >{props.dates.map(date => {
       return (
         <li 
           key={date}
           style={{
             fontSize: '0.75rem',
-            color: Color.White
+            color: 'white'
           }}
         >{date}
         </li>
@@ -30,4 +23,4 @@ const CalendarItemDates = (props: CalendarItemDatesProps): JSX.Element => {
   )
 }
 
-export default CalendarItemDates
+export default Dates
