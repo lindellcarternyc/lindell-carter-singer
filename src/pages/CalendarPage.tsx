@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { MonthData } from '../components/calendar/types'
 import Layout from '../components/PageLayout'
-import Calendar from '../components/calendar/Calendar'
+import Calendar from '../components/calendar'
 
 const UpcomingEvents: MonthData[] = [
   {
@@ -52,8 +52,8 @@ const CalendarPage = (): JSX.Element => {
   return (
     <Layout title="Calendar">
       <Calendar 
-        upcomingEvents={UpcomingEvents}
-        pastEvents={PastEvents}
+        upcoming={UpcomingEvents}
+        past={PastEvents}
       />
     </Layout>
   )

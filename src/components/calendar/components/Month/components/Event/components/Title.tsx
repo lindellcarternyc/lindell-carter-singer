@@ -1,17 +1,18 @@
 import * as React from 'react'
 
-import { Color } from '../../../constants/styles'
+import { Color } from '../../../../../../../styles/base'
 
-interface CalendarItemTitleProps {
+interface TitleProps {
   text: string
   active?: boolean
 }
-const CalendarItemTitle = (props: CalendarItemTitleProps): JSX.Element => {
+const Title = (props: TitleProps): JSX.Element => {
   const { text, active } = props
+
   return (
     <h4
       style={{
-        color: active ? Color.Blue : Color.White,
+        color: active ? Color.BLUE : Color.WHITE,
         textTransform: 'uppercase',
         fontSize: '0.95rem',
         marginBottom: '1rem',
@@ -22,4 +23,4 @@ const CalendarItemTitle = (props: CalendarItemTitleProps): JSX.Element => {
   )
 }
 
-export default CalendarItemTitle
+export default Title
