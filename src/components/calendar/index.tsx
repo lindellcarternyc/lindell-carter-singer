@@ -33,7 +33,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
         />
         <div
           style={{
-            backgtound: Color.DARK_GREY,
+            background: Color.DARK_GREY,
             paddingLeft: '1.5rem', paddingRight: '1.5rem',
             paddingBottom: '1.5rem'
           }}
