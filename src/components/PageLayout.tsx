@@ -15,6 +15,7 @@ const getPadding = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
   const navHeight = NavigationHeight[breakpoint]
   return `calc(100vh - ${navHeight}px`
 }
+
 const PageLayout = (props: PageLayoutProps): JSX.Element => {
   const padding = getPadding(props.breakpoint)
       
