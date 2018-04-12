@@ -19,6 +19,7 @@ const gridWidth = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
 interface ImageGridProps {
   images: string[]
   breakpoint?: Breakpoint
+  selectImage?: (idx: number) => void
 }
 const ImageGrid = (props: ImageGridProps): JSX.Element => {
   return (
@@ -37,6 +38,11 @@ const ImageGrid = (props: ImageGridProps): JSX.Element => {
           key={`_${idx.toString(10)}--${image}`}
           src={image}
           imageWidth={IMAGE_WIDTH}
+          onClick={() => {
+            if ( props.selectImage ) {
+              props.selectImage(idx)
+            }
+          }}
         />
       )
     })}
