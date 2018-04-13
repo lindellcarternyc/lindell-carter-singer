@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import PageTitle from './PageTitle'
+import Page from './page'
 import Navigation, { NavigationHeight } from './navigation'
  
 import { Breakpoint, makeResponsiveComponent } from './utils/responsive'
@@ -26,8 +26,9 @@ const PageLayout = (props: PageLayoutProps): JSX.Element => {
       }}
     >
       <Navigation />
-      <PageTitle name={props.title} />
-      {props.children}
+      <Page title={props.title}>
+        {props.children}
+      </Page>
     </div>
   )
 }
