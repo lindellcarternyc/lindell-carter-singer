@@ -64,7 +64,7 @@ class PhotoModal extends React.Component<PhotoModalProps, PhotoModalState> {
         <div 
           style={{
             width: this.width, 
-            maxWidth: '800px',
+            maxWidth: '500px',
             maxHeight: '(100vh - 4rem)',
             position: 'absolute',
             top: '50%', left: '50%',
