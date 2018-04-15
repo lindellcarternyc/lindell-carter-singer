@@ -1,41 +1,30 @@
 import * as React from 'react'
 
-import { RouteComponentProps, withRouter } from 'react-router-dom'
+import { Route } from '../../../constants/routes'
 
-import { Color } from '../../../styles/base'
-import { Breakpoint, makeResponsiveComponent } from '../../utils/responsive'
-import makeHoverableComponent from '../../utils/hoverable'
+import BaseLink from '../../BaseLink'
 
-export interface LinkProps {
-  title: string
-  path: string
-  active?: boolean
-  breakpoint?: Breakpoint
+interface LinkProps {
+  route: Route
 }
-const Link = (props: LinkProps & RouteComponentProps<{}>): JSX.Element => {
-  const { title, active, breakpoint, history, path } = props
-  const sidePadding = breakpoint && breakpoint >= Breakpoint.Phablet
-      ? '1rem' : '0'
+
+const Styles = {
+  color: 'white',
+  paddingTop: '1.5rem',
+  margin: '1rem 0.5rem',
+  borderTop: '1px solid transparent'
+}
+
+const ActiveStyles = {
+  borderTop: '1px solid white'
+}
+
+const Link = (props: LinkProps): JSX.Element => {
+  const { route } = props
+
   return (
-    <li
-      style={{
-        borderBottom: `1px solid ${Color.DARK_GREY}`,
-        fontSize: '0.75rem',
-        backgroundColor: active ? Color.DARK_GREY : undefined,
-        color: active ? Color.BLUE : Color.DARK_GREY,
-        transition: 'all 0.3s ease-in',
-        textAlign: 'center',
-        paddingTop: '1rem', paddingBottom: '1rem',
-        paddingLeft: sidePadding, paddingRight: sidePadding
-      }}
-      onClick={() => { history.push(path) }}
-    >{title}
-    </li>
+    <BaseLink route={route} style={Styles} activeStyle={ActiveStyles} />
   )
 }
 
-export default withRouter(
-  makeResponsiveComponent(
-    makeHoverableComponent(Link)
-  )
-)
+export default Link
