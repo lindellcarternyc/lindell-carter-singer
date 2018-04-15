@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import Page from './page'
-import Navigation, { NavigationHeight } from './navigation'
+// import { NavigationHeight } from './navigation'
  
 import { Breakpoint, makeResponsiveComponent } from './utils/responsive'
 
@@ -11,22 +11,22 @@ interface PageLayoutProps {
   breakpoint?: Breakpoint
 }
 
-const getPadding = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
-  const navHeight = NavigationHeight[breakpoint]
-  return `calc(100vh - ${navHeight}px`
-}
+// const getPadding = (breakpoint: Breakpoint = Breakpoint.Phone): string => {
+//   const navHeight = NavigationHeight[breakpoint]
+//   return `calc(100vh - ${navHeight}px`
+// }
 
 const PageLayout = (props: PageLayoutProps): JSX.Element => {
-  const padding = getPadding(props.breakpoint)
+  // const padding = getPadding(props.breakpoint)
       
   return (
     <div
-      style={{
-        paddingTop: padding,
-      }}
+      // style={{
+      //   paddingTop: padding,
+      // }}
     >
-      <Navigation />
-      <Page title={props.title}>
+      {/* <Navigation /> */}
+      <Page>
         {props.children}
       </Page>
     </div>

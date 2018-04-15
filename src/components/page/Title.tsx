@@ -7,14 +7,10 @@ interface TitleProps {
 }
 const Title = (props: TitleProps): JSX.Element => {
   return (
-    <div
-      style={{
-        background: Color.WHITE
-      }}
-    >
+    <div>
       <h1
         style={{
-          color: Color.DARK_GREY,
+          color: 'white',
           margin: '0.5rem 1rem',
           fontWeight: 100,
           display: 'inline-block',
@@ -22,7 +18,7 @@ const Title = (props: TitleProps): JSX.Element => {
           borderBottom: `1px solid ${Color.DARK_GREY}`,
           padding: '0.75rem 1.5rem'
         }}
-      >Lindell Carter / {props.text}
+      >Lindell Carter | {props.text}
       </h1>
     </div>
   )

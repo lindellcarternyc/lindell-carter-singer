@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import Layout from '../components/PageLayout'
+import Page from '../components/page'
 
 const HomePage = (): JSX.Element => {
   return (
-    <Layout title="Home & News" />
+    <Page />
   )
 }
 

@@ -10,7 +10,7 @@ const Img5 = require('../assets/images/img5.jpg')
 const Img6 = require('../assets/images/img6.jpg')
 const Img7 = require('../assets/images/img7.jpg')
 
-import PageLayout from '../components/PageLayout'
+import Page from '../components/page'
 import PhotoGallery from '../components/photo-gallery'
 
 const Images = [
@@ -21,9 +21,9 @@ const Images = [
 
 const PhotoGalleryPage = (): JSX.Element => {
   return (
-    <PageLayout title="Gallery">
+    <Page>
       <PhotoGallery images={Images}/>
-    </PageLayout>
+    </Page>
   )
 }
 
